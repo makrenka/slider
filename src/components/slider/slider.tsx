@@ -1,4 +1,6 @@
+import { Arrow } from "../arrow";
 import { Card } from "../card";
+import { Dot } from "../dot";
 
 import photo1 from "./assets/amazing-aerial-shot-beautiful-forested-mountains-armenia.jpg";
 import photo2 from "./assets/beautiful-shot-people-walking-up-mountain-distance-cloudy-sky.jpg";
@@ -24,8 +26,22 @@ const photos = [
 
 export const Slider = () => (
   <div className={styles.slider}>
-    {photos.map((item) => (
-      <Card data={item} key={item.id} />
-    ))}
+    <div className={styles.wrapper}>
+      {photos.map((item) => (
+        <Card data={item} key={item.id} />
+      ))}
+    </div>
+
+    <div className={styles.rightArrow}>
+      <Arrow />
+    </div>
+    <div className={styles.leftArrow}>
+      <Arrow />
+    </div>
+    <div className={styles.dots}>
+      {photos.map((item) => (
+        <Dot key={item.id} />
+      ))}
+    </div>
   </div>
 );
