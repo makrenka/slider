@@ -1,9 +1,18 @@
-import photo1 from "./assets/amazing-aerial-shot-beautiful-forested-mountains-armenia.jpg";
-
 import styles from "./card.module.scss";
 
-export const Card = ({ index }: string) => (
-  <div className={styles.card}>
-    <img src={photo1} alt="photo1" />
-  </div>
-);
+type CardProps = {
+  data: {
+    name: string;
+    id: number;
+  };
+};
+
+export const Card = ({ data }: CardProps) => {
+  console.log(data);
+
+  return (
+    <div className={styles.card}>
+      <img src={data.name} alt="photo1" className={styles.image} />
+    </div>
+  );
+};

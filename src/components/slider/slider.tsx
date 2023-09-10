@@ -11,12 +11,21 @@ import photo8 from "./assets/view-from-inside-tent-wild-nature-sunny-day.jpg";
 
 import styles from "./slider.module.scss";
 
-const photos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8];
+const photos = [
+  { name: photo1, id: 1 },
+  { name: photo2, id: 2 },
+  { name: photo3, id: 3 },
+  { name: photo4, id: 4 },
+  { name: photo5, id: 5 },
+  { name: photo6, id: 6 },
+  { name: photo7, id: 7 },
+  { name: photo8, id: 8 },
+];
 
 export const Slider = () => (
   <div className={styles.slider}>
-    {photos.map((index) => (
-      <Card index={index} />
+    {photos.map((item) => (
+      <Card data={item} key={item.id} />
     ))}
   </div>
 );
