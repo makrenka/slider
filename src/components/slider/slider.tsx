@@ -1,4 +1,6 @@
-import { Arrow } from "../arrow";
+import { useState } from "react";
+
+import { LeftArrow, RightArrow } from "../arrow";
 import { Card } from "../card";
 import { Dot } from "../dot";
 
@@ -13,7 +15,7 @@ import photo8 from "./assets/view-from-inside-tent-wild-nature-sunny-day.jpg";
 
 import styles from "./slider.module.scss";
 
-const photos = [
+export const photos = [
   { name: photo1, id: 1 },
   { name: photo2, id: 2 },
   { name: photo3, id: 3 },
@@ -24,24 +26,33 @@ const photos = [
   { name: photo8, id: 8 },
 ];
 
-export const Slider = () => (
-  <div className={styles.slider}>
-    <div className={styles.wrapper}>
-      {photos.map((item) => (
-        <Card data={item} key={item.id} />
-      ))}
-    </div>
+export const Slider = () => {
+  const [position, setPosition] = useState(0);
 
-    <div className={styles.rightArrow}>
-      <Arrow />
+  return (
+    <div className={styles.slider}>
+      <div className={styles.wrapper}>
+        <div
+          className={styles.slides}
+          style={{ transform: `translateX(${position * -790}px)` }}
+        >
+          {photos.map((item) => (
+            <Card data={item} key={item.id} />
+          ))}
+        </div>
+
+        <div className={styles.rightArrow}>
+          <RightArrow position={position} setPosition={setPosition} />
+        </div>
+        <div className={styles.leftArrow}>
+          <LeftArrow position={position} setPosition={setPosition} />
+        </div>
+        <div className={styles.dots}>
+          {photos.map((item) => (
+            <Dot key={item.id} />
+          ))}
+        </div>
+      </div>
     </div>
-    <div className={styles.leftArrow}>
-      <Arrow />
-    </div>
-    <div className={styles.dots}>
-      {photos.map((item) => (
-        <Dot key={item.id} />
-      ))}
-    </div>
-  </div>
-);
+  );
+};

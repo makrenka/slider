@@ -3,11 +3,14 @@
 }
 
 .wrapper {
+    width: 750px;
+        overflow: hidden;
+    }
+    
+    .slides {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 750px;
-    overflow: hidden;
 }
 
 .rightArrow {
