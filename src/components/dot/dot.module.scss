@@ -1,5 +1,11 @@
 .dot {
-    width: 10px;
-    height: 10px;
-    margin-right: 5px;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.dotActive {
+  opacity: 1;
 }
