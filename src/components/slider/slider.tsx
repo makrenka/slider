@@ -50,10 +50,10 @@ export const Slider = () => {
           <LeftArrow position={position} setPosition={setPosition} />
         </div>
         <div className={styles.dots}>
-          {photos.map((item) => (
+          {photos.map((item, _, arr) => (
             <Dot
               position={position}
-              itemId={item.id}
+              itemIndex={arr.indexOf(item)}
               setPosition={setPosition}
               key={item.id}
             />
